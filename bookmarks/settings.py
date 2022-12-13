@@ -105,6 +105,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
     'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
     ]
 
 LOGIN_REDIRECT_URL = 'dashboard'
@@ -133,3 +134,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# i am not gonna register my phone number to facebook
+SOCIAL_AUTH_FACEBOOK_KEY = 'XXX' # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'XXX' # Facebook App Secret
