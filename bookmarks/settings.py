@@ -25,7 +25,7 @@ SECRET_KEY = 'ft+=t+z9d7*)ip+p#2$z(a_btb#41%0mju=td%c1gs=2%wj3%o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
