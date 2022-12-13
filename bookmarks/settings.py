@@ -138,3 +138,7 @@ STATIC_URL = '/static/'
 # i am not gonna register my phone number to facebook
 SOCIAL_AUTH_FACEBOOK_KEY = 'XXX' # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'XXX' # Facebook App Secret
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'XXX' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'XXX' # Google Consumer Secret
+
