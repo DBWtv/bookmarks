@@ -26,7 +26,9 @@ SECRET_KEY = 'ft+=t+z9d7*)ip+p#2$z(a_btb#41%0mju=td%c1gs=2%wj3%o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1', '37c3-84-240-251-213.eu.ngrok.io']
+THUMBNAIL_DEBUG = True
+
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1', 'f495-2-132-29-16.eu.ngrok.io']
 
 ABSOLUTE_URL_OVERRIDES = {
 'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username])

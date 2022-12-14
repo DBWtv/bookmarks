@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 @login_required
 def user_list(request):
     users = User.objects.filter(is_active=True)
+    print(users)
     return render(request,
                 'account/user/list.html',
                 {'section': 'people',
