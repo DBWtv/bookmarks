@@ -13,7 +13,7 @@ class Image(models.Model):
     image = models.ImageField(upload_to='images/%Y/%m%/d/')
     description = models.TextField(blank=True)
     created = models.DateField(auto_now_add=True, db_index=True)
-    user_like = models.ManyToManyField(settings.AUTH_USER_MODEL,
+    users_like = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                         related_name='image_liked',
                                         blank=True)
 

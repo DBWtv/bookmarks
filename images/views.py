@@ -17,7 +17,7 @@ def image_like(request):
             if action == 'like':
                 image.users_like.add(request.user)
             else:
-                image.user_like.remove(request.user)
+                image.users_like.remove(request.user)
             return JsonResponse({'status': 'ok'})
         except:
             pass
