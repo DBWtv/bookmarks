@@ -12,7 +12,7 @@ from common.decorators import ajax_required
 from .models import Contact
 from actions.utils import create_action
 from actions.models import Action
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 @ajax_required
 @require_POST
@@ -73,11 +73,27 @@ def register(request):
 def dashboard(request):
     actions = Action.objects.exclude(user=request.user)
     following_ids = request.user.following.values_list('id', flat=True)
+    page = request.GET.get('page')
+
     if following_ids:
         actions = actions.filter(user_id__in=following_ids)
     actions = actions.select_related('user', 'user__profile')\
                      .prefetch_related('target')[:10]
-    print(actions)
+
+    paginator = Paginator(actions, 1)
+    try:
+        actions = paginator.page(page)
+    except PageNotAnInteger:
+        actions = paginator.page(1)
+    except EmptyPage:
+        if request.is_ajax():
+            return HttpResponse('')
+        actions = paginator.page(paginator.num_pages)
+
+    if request.is_ajax():
+        print(actions)
+        return render(request, 'actions/action/detail.html',
+                    {'section': 'dashboard', 'actions': actions})
     return render(request, 'account/dashboard.html',
                     {'section': 'dashboard', 'actions': actions})
 
